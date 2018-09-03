@@ -1,5 +1,7 @@
 package com.qa.business.service;
 
+import java.util.Collection;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,47 +27,6 @@ public class AccountServiceSpringImpl implements AccountService
 	{
 		LOGGER.info("In AccountServiceImpl findAccount: " + account);
 		return repo.findOne(account.getId());
-		
-		
-		
-//		public AccountCollection find(int accountNumber, String firstName, String lastName)
-//		{
-//			AccountCollection resultAccountCollection  = new AccountCollection();
-//			
-//			if (0 < accountNumber) 
-//			{
-//				Account account = accountCollection.find(accountNumber);
-//				
-//				if ((null == firstName || "".equals(firstName) || firstName.equals(account.getFirstName())) && 
-//					(null == lastName || "".equals(lastName) || lastName.equals(account.getLastName())) &&
-//					null != account)
-//				{
-//					try 
-//					{
-//						resultAccountCollection.addAccount(account);
-//					} 
-//					catch (Exception e) 
-//					{
-//						e.printStackTrace();
-//					}
-//				}
-//				
-//				return resultAccountCollection;
-//			}
-//					
-//			if (null != firstName && !"".equals(firstName))
-//				resultAccountCollection = accountCollection.findByFirstName(firstName);
-//			
-//			if (null != lastName && !"".equals(lastName))
-//				return resultAccountCollection.findByLastName(lastName);
-//				
-//			return resultAccountCollection;
-//		}		
-		
-		
-		
-		
-		
 	}
 
 	public String addAccount(Account account) 
