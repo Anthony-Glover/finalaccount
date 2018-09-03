@@ -82,46 +82,92 @@ router,
 methods: 
 {
         findAllAccounts: function()
-	{
+	    {
             axios.get(link).then(function(response)
-		{
-                	this.list = response.data;
-            	}, function(error)
-		{
-                	console.log(error.statusText);
-            	});
+			{
+            	this.list = response.data;
+            }, 
+            function(error)
+			{
+				alert('Find all accounts failed:' + error.statusText);
+            	console.log(error.statusText);
+            });
         },
 
       addAccount: function() 
       {
-	axios.post(link, {}).then(function(response)
-		{
-                	alert('AddCalled.')
-            	}, function(error)
-		{
+		var fn = window.document.getElementById("firstname");
+		var ln = window.document.getElementById("surname");
+		var an = window.document.getElementById("accountnumber");
+			axios.post(link, {firstName: fn.value,
+								secondName: ln.value,
+								accountNumber: an.value
+								}).then(function(response)
+			{
+                	alert('Add Sucessful.')
+            }, 
+            function(error)
+			{
+					alert('Add Account failed:' + error.statusText);
                 	console.log(error.statusText);
-            	});
+            });
       	}, 
 
-
-      findAccount: function(fname, sname, accno) 
+      updateAccount: function(objid, fname, lname, accno) 
       {
-	axios.post(link2, {}).then(function(response)
-		{
-                	alert('FindCalled.')
-            	}, function(error)
-		{
+			axios.put(link, {id: objid
+								firstName: fname,
+								secondName: lname,
+								accountNumber: accno
+								}).then(function(response)
+			{
+                	alert('Update Sucessful.')
+            }, 
+            function(error)
+			{
+					alert('Update Account failed:' + error.statusText);
                 	console.log(error.statusText);
-            	});
-      	} 
+            });
+      	}, 
+
+     DeleteAccount: function(objId) 
+      {
+			axios.delete(link, {id: objId}).then(function(response)
+			{
+                	alert('Delete Sucessful.')
+            }, 
+            function(error)
+			{
+					alert('Delete Account failed:' + error.statusText);
+                	console.log(error.statusText);
+            });
+      	},
+		
+      findAccount: function() 
+      {
+		var fn = window.document.getElementById("firstname");
+		var ln = window.document.getElementById("surname");
+		var an = window.document.getElementById("accountnumber");
+			axios.get(link2, {firstName: fn.value,
+								secondName: ln.value,
+								accountNumber: an.value
+								}).then(function(response)
+	}).then(function(response)
+			{
+            	alert('FindCalled.')
+				fn.value = response.data;
+            }, 
+            function(error)
+			{
+				alert('FindCalled failed:' + error.statusText);
+            	console.log(error.statusText);
+            });
+      } 
 
     },
     mounted: function () {
 	console.log("components have been mounted");
-	// this.findAllAccounts();
-	// this.findAccount();        
-	// this.addAccount();
-        
+	this.findAllAccounts();    
     } 
 
 
