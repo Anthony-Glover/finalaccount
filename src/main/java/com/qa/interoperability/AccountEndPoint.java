@@ -81,8 +81,8 @@ public class AccountEndPoint
 	@DELETE
 	@Produces({ "application/json" })
 	public String deleteAccount(@PathParam("id") Long id) 
-	{
-		LOGGER.info("In AccountEndPoint updateAccount: " + id);
+	{		
+		LOGGER.info("In AccountEndPoint updateAccount: " + id);	
 		return service.deleteAccount(id);
 	}
 
