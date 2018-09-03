@@ -12,7 +12,7 @@ import com.qa.persistence.repository.AccountSpringDBRepository;
 @Service
 public class AccountServiceSpringImpl implements AccountService 
 {
-	private static final Logger LOGGER = Logger.getLogger(AccountService.class);
+	private static final Logger LOGGER = Logger.getLogger(AccountServiceSpringImpl.class);
 
 	@Autowired
 	AccountSpringDBRepository repo;

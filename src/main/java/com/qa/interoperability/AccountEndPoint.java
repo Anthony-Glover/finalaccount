@@ -18,7 +18,7 @@ import com.qa.persistence.domain.Account;
 @Path("/account")
 public class AccountEndPoint 
 {
-	private static final Logger LOGGER = Logger.getLogger(AccountService.class);
+	private static final Logger LOGGER = Logger.getLogger(AccountEndPoint.class);
 
 	@Inject
 	private AccountService service;

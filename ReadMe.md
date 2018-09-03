@@ -10,3 +10,4 @@ Wildfly to support application server
 JAVAX to support REST API
 GSON to wrap JSON 
 JUnit for future test scripts
+log4j for logging debug messages to log file
