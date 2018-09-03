@@ -85,7 +85,7 @@ methods:
 	    {
             axios.get(link).then(function(response)
 			{
-            	this.list = response.data;
+ //           	this.list = response.data;
             }, 
             function(error)
 			{
@@ -115,7 +115,7 @@ methods:
 
       updateAccount: function(objid, fname, lname, accno) 
       {
-			axios.put(link, {id: objid
+			axios.put(link, {id: objid,
 								firstName: fname,
 								secondName: lname,
 								accountNumber: accno
@@ -152,7 +152,6 @@ methods:
 								secondName: ln.value,
 								accountNumber: an.value
 								}).then(function(response)
-	}).then(function(response)
 			{
             	alert('FindCalled.')
 				fn.value = response.data;
